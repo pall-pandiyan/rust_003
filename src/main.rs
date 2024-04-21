@@ -1,9 +1,10 @@
-use chrono::{Datelike, Timelike, Utc};
+use chrono::{Utc, Timelike, Datelike};
+
 
 fn print_datetime() {
     let now = Utc::now();
     println!(
-        "Datetime now: {}/{}/{} {}:{}:{}",
+        "Datetime now: {:02}/{:02}/{:0004} {:02}:{:02}:{:02}",
         now.day(),
         now.month(),
         now.year(),
@@ -13,10 +14,11 @@ fn print_datetime() {
     );
 }
 
+
 fn main() {
     print_datetime();
     let mut count: i64 = 0;
-    let threshold: i64 = 9999999999;
+    let threshold: i64 = 10000000000;
     loop {
         count = count + 1;
         if count % threshold == 0 {
